@@ -19,12 +19,11 @@ def send_got_email_task(email, *books):
     )
 
 
-
 @shared_task(name="send_end_email")
 def send_end_email():
     """send an email when validity time is over"""
     two_days_ago = timezone.now() - timezone.timedelta(days=2)
-    
+
     all_borrowedbooks = BorrowedBooks.objects.all()
     for borrowedbook in all_borrowedbooks:
         if borrowedbook.validity_at <= two_days_ago:
