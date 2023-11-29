@@ -26,7 +26,7 @@ def send_end_email():
 
     all_borrowedbooks = BorrowedBooks.objects.all()
     for borrowedbook in all_borrowedbooks:
-        if borrowedbook.validity_at <= two_days_ago:
+        if borrowedbook.validity_at.day == two_days_ago.day:
             books = borrowedbook.books.all()
             book_names = [book.name for book in books]
 
