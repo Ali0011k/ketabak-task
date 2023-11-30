@@ -2,7 +2,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import *
 from books.api.permissions import IsAdminOrReadOnly
 from orders.api.v1.serializers import BorrowedBooksSerializer
-from orders.api.paginations import BorrowedBooksPagination
+from books.api.paginations import CustomLimitOffsetPagination
 from orders.models import BorrowedBooks
 
 
@@ -12,7 +12,7 @@ class BorrowedBooksModelViewSet(ModelViewSet):
     queryset = BorrowedBooks.objects.all()
     serializer_class = BorrowedBooksSerializer
     permission_classes = [IsAuthenticated, IsAdminOrReadOnly]
-    pagination_class = BorrowedBooksPagination
+    pagination_class = CustomLimitOffsetPagination
 
     def get_queryset(self):
         user = self.request.user
