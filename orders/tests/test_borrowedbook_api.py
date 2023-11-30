@@ -17,6 +17,8 @@ class TestBorrowedBooksApi(APITestCase):
 
     def test_get_borrowedbooks(self):
         """testing borrowedbooks are equal with database objects"""
+        user = User.objects.first()
+        self.api_client.force_authenticate(user)
         response = self.api_client.get(reverse("orders:api-v1:borrowedbooks-list"))
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
