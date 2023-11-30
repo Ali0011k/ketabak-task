@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "django_filters",
     "drf_spectacular",
     "books",
     "orders",
@@ -74,7 +75,7 @@ TEMPLATES = [
         },
     },
 ]
-
+"rest_framework.authentication.BasicAuthentication",
 WSGI_APPLICATION = "core.wsgi.application"
 
 
