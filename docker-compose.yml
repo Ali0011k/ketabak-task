@@ -12,11 +12,16 @@ services:
 
   db:
     image: postgres:14-alpine
+    environment:
+      - POSTGRES_DB=ketabak_db
+      - POSTGRES_USER=ketabak_user
+      - POSTGRES_PASSWORD=ali0013khani
     volumes:
-      - ~/apps/postgres/ketabak:/var/lib/postgresql/data
+      - ~/data/:/var/lib/postgresql/data
     env_file:
       - .env
     container_name: db
+
 
   smtp4dev:
     image: rnwood/smtp4dev:v3

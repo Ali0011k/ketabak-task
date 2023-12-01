@@ -1,12 +1,14 @@
 from django.test.runner import DiscoverRunner as BaseRunner
 from django.utils import timezone
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from decouple import config
 from PIL import Image
 from io import BytesIO
 from books.models import Book
 from orders.models import BorrowedBooks
 import requests
+
+User = get_user_model()
 
 
 # for unit test

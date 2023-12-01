@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.utils import timezone
 from django.urls import reverse
 from rest_framework.test import APITestCase
@@ -7,6 +7,7 @@ from rest_framework import status
 from books.models import Book
 from orders.models import BorrowedBooks
 
+User = get_user_model()
 
 class TestBorrowedBooksApi(APITestCase):
     """test borrowedbooks model's api"""
