@@ -11,3 +11,5 @@ POSTGRES_USER=<br/>
 POSTGRES_PASSWORD=<br/>
 USERNAME = <br/>
 EMAIL=<br/>
+
+data base location = ~/data/
