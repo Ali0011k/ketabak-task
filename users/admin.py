@@ -10,10 +10,10 @@ User = get_user_model()
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
     """re regestering user model"""
-    
+
     fieldsets = (
-        (None, {"fields": ("username", "password")}),
-        (_("Personal info"), {"fields": ("first_name", "last_name", "email")}),
+        (None, {"fields": ("username", "email", "password")}),
+        (_("Personal info"), {"fields": ("first_name", "last_name")}),
         (
             _("Permissions"),
             {
@@ -34,7 +34,7 @@ class CustomUserAdmin(UserAdmin):
             None,
             {
                 "classes": ("wide",),
-                "fields": ("username", "password1", "password2"),
+                "fields": ("username", "email", "password1", "password2"),
             },
         ),
     )

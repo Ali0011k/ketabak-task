@@ -5,9 +5,10 @@ from users.managers import CustomUserManager
 
 class CustomUser(AbstractUser):
     """custom user with an exrta field"""
+
     email = models.EmailField(unique=True)
     is_verified = models.BooleanField(default=False)
-    
+
     REQUIRED_FIELDS = ["email"]
 
     objects = CustomUserManager()

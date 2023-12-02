@@ -4,6 +4,7 @@ from orders.models import BorrowedBooks
 
 User = get_user_model()
 
+
 class TestBorrowedBooksModel(TestCase):
     """testing BorrowedBooks model"""
 

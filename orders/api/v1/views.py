@@ -5,7 +5,7 @@ from rest_framework.filters import SearchFilter
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from books.api.permissions import IsAdminOrReadOnly
-from orders.api.v1.serializers import BorrowedBooksSerializer
+from orders.api.v1.serializers import *
 from orders.models import BorrowedBooks
 
 
@@ -31,3 +31,9 @@ class BorrowedBooksModelViewSet(ModelViewSet):
             )
         else:
             return BorrowedBooks.objects.none()
+
+    def get_serializer_class(self, *args, **kwargs):
+        if self.action in ["list", "retrieve"]:
+            return BorrowedBooksGetActionSerializer
+        else:
+            return self.serializer_class

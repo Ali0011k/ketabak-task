@@ -5,6 +5,7 @@ from books.models import Book
 
 User = get_user_model()
 
+
 class BorrowedBooks(models.Model):
     """this is BorrowedBooks model"""
 

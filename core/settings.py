@@ -181,7 +181,7 @@ SIMPLE_JWT = {
 
 TEST_RUNNER = "core.tests.runner.TestRunner"
 
-
+# celery settings
 CELERY_BROKER_URL = "redis://redis:6379/2"
 CELERY_RESULT_BACKEND = CELERY_BROKER_URL
 CELERY_ACCEPT_CONTENT = ["application/json"]
@@ -189,5 +189,5 @@ CELERY_TASK_SERIALIZER = "json"
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TIMEZONE = TIME_ZONE
 
-
+# user settings
 AUTH_USER_MODEL = "users.CustomUser"
