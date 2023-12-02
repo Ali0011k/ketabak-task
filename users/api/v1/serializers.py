@@ -24,11 +24,3 @@ class UserSerializer(serializers.ModelSerializer):
             "is_verified",
             "date_joined",
         ]
-
-
-class GroupSerializer(serializers.ModelSerializer):
-    """a serializer for Group model when retreving object/objects"""
-
-    class Meta:
-        model = Group
-        fields = ["id", "name", "permissions"]

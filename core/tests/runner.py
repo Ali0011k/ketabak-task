@@ -32,6 +32,10 @@ class TestRunnerMixin(object):
             username=config("USERNAME", cast=str),
             email=config("EMAIL", cast=str),
             password=config("DJANGO_SUPERUSER_PASSWORD", cast=str),
+            is_superuser=True,
+            is_active=True,
+            is_staff=True,
+            is_verified=True,
         )
         borrowedbook = BorrowedBooks.objects.create(
             user=user,

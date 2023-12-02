@@ -19,6 +19,7 @@ class UserModelViewSet(ModelViewSet):
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
     pagination_class = LimitOffsetPagination
     filter_backends = [OrderingFilter, SearchFilter]
     ordering_fields = ["id", "is_superuser", "is_staff", "is_active", "is_verified"]
