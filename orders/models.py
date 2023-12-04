@@ -16,7 +16,7 @@ class BorrowedBooks(models.Model):
     validity_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return self.user
+        return self.user.email
 
     class Meta:
         db_table = "BorrowedBooks"
