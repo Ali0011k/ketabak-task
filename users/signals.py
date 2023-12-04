@@ -13,14 +13,15 @@ User = get_user_model()
 def send_verification_email(sender, instance, created, *args, **kwargs):
     """a signal for sending verification email for user"""
 
-    url = settings.HOSTNAME
-    user = instance
-    token = RefreshToken.for_user(user).access_token
-    url += reverse("users:api-v1:verify-user", kwargs={"token": str(token)})
-    send_mail(
-        "ketabak : verification email",
-        f"palace activate your account form this url \n {url}",
-        "ketabak@gmail.com",
-        [instance.email],
-        fail_silently=True,
-    )
+    if created:
+        url = settings.HOSTNAME
+        user = instance
+        token = RefreshToken.for_user(user).access_token
+        url += reverse("users:api-v1:verify-user", kwargs={"token": str(token)})
+        send_mail(
+            "ketabak : verification email",
+            f"palace activate your account form this url \n {url}",
+            "ketabak@gmail.com",
+            [instance.email],
+            fail_silently=True,
+        )
